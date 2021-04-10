@@ -3,7 +3,7 @@ const { CharactersController } = require('../controllers');
 
 const CharactersRouter = new Router();
 
-CharactersRouter.get('/search', CharactersController.createUser);
+CharactersRouter.get('/search', CharactersController.searchCharacters);
 
 CharactersRouter.get('/:id', CharactersController.getCharacterById);
 
