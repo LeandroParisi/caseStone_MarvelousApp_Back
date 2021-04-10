@@ -1,0 +1,25 @@
+{
+  "name": "casestone_marvelousapp_back",
+  "version": "1.0.0",
+  "description": "Front end of Marvelous APP, a complete catalogue about marvel comics and characters",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeandroParisi/caseStone_MarvelousApp_Back.git"
+  },
+  "author": "Leandro Parisi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeandroParisi/caseStone_MarvelousApp_Back/issues"
+  },
+  "homepage": "https://github.com/LeandroParisi/caseStone_MarvelousApp_Back#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
