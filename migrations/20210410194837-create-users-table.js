@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Users', {
