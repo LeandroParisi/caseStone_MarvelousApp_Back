@@ -2,19 +2,19 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('users_comics', {
-      user_id: {
+    await queryInterface.createTable('usersComics', {
+      userId: {
         allowNull: false,
         foreignKey: true,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: {
-          model: 'users',
+          model: 'Users',
           key: 'id',
         }
       },
-      comic_id: {
+      comicId: {
         allowNull: false,
         type: Sequelize.INTEGER,
       }
@@ -22,6 +22,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users_comics')
+    await queryInterface.dropTable('usersComics')
   }
 };
