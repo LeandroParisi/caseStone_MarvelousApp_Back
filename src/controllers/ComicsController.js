@@ -14,13 +14,13 @@ const addFavoriteComic = async (req, res) => {
   res.status(200).json({message: "addFavoriteComic"})
 }
 
-const editFavoriteComic = async (req, res) => {
-  res.status(200).json({message: "editFavoriteComic"})
+const deleteFavoriteComic = async (req, res) => {
+  res.status(200).json({message: "deleteFavoriteComic"})
 }
 
-modules.exports = {
+module.exports = {
   searchComics,
   getComicById,
   addFavoriteComic,
-  editFavoriteComic,
+  deleteFavoriteComic,
 }

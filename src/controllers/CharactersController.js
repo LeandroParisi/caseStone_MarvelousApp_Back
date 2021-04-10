@@ -14,13 +14,13 @@ const addFavoriteCharacter = async (req, res) => {
   res.status(200).json({message: "addFavoriteCharacter"})
 }
 
-const editFavoriteCharacter = async (req, res) => {
-  res.status(200).json({message: "editFavoriteCharacter"})
+const deleteFavoriteCharacter = async (req, res) => {
+  res.status(200).json({message: "deleteFavoriteCharacter"})
 }
 
-modules.exports = {
+module.exports = {
   searchCharacters,
   getCharacterById,
   addFavoriteCharacter,
-  editFavoriteCharacter,
+  deleteFavoriteCharacter,
 }

@@ -9,6 +9,6 @@ CharactersRouter.get('/:id', CharactersController.getCharacterById);
 
 CharactersRouter.post('/:id', CharactersController.addFavoriteCharacter);
 
-CharactersRouter.delete('/:id', CharactersController.editFavoriteCharacter);
+CharactersRouter.delete('/:id', CharactersController.deleteFavoriteCharacter);
 
 module.exports = CharactersRouter;

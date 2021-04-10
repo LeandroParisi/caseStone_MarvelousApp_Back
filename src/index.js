@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const errorHandler = require('./src/middlewares/errorHandler/errorHandler');
-const { UsersRouter, CharactersRouter, ComicsRouter } = require('./src/routes');
+const errorHandler = require('./middlewares/errorHandler/errorHandler');
+const { UsersRouter, CharactersRouter, ComicsRouter } = require('./routes');
 
 require('dotenv').config();
 

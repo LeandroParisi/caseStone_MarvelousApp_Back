@@ -19,7 +19,7 @@ const deleteUser = async (req, res) => {
   res.status(200).json({message: "deleteUser"})
 }
 
-modules.exports = {
+module.exports = {
   createUser,
   login,
   updateUser,

@@ -25,5 +25,8 @@
     "save-dev": "0.0.1-security",
     "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
