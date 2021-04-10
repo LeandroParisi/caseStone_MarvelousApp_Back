@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('UsersComics', {
@@ -12,16 +10,16 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id',
-        }
+        },
       },
       comicId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-      }
-    })
+      },
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('UsersComics')
-  }
+    await queryInterface.dropTable('UsersComics');
+  },
 };

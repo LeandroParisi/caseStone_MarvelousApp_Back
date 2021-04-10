@@ -4,7 +4,8 @@
   "description": "Front end of Marvelous APP, a complete catalogue about marvel comics and characters",
   "main": "src/index.js",
   "scripts": {
-    "debug": "nodemon src/index.js"
+    "debug": "nodemon src/index.js",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
   }
 }

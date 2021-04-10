@@ -5,15 +5,15 @@ const { UsersRouter, CharactersRouter, ComicsRouter } = require('./routes');
 
 require('dotenv').config();
 
-const PORT = process.env.PORT
+const { PORT } = process.env;
 
 const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/users', UsersRouter)
-app.use('/characters', CharactersRouter)
-app.use('/comics', ComicsRouter)
+app.use('/users', UsersRouter);
+app.use('/characters', CharactersRouter);
+app.use('/comics', ComicsRouter);
 
 app.use(errorHandler);
 

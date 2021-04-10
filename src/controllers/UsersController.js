@@ -4,24 +4,24 @@ const { FireError } = require('../middlewares/errorHandler/utils');
 const { jwtConfig, createJWTPayload, jwtSign } = require('../authentication/jwtConfig');
 
 const createUser = async (req, res) => {
-  res.status(200).json({message: "createUser"})
-}
+  res.status(200).json({ message: 'createUser' });
+};
 
 const login = async (req, res) => {
-  res.status(200).json({message: "login"})
-}
+  res.status(200).json({ message: 'login' });
+};
 
 const updateUser = async (req, res) => {
-  res.status(200).json({message: "updateUser"})
-}
+  res.status(200).json({ message: 'updateUser' });
+};
 
 const deleteUser = async (req, res) => {
-  res.status(200).json({message: "deleteUser"})
-}
+  res.status(200).json({ message: 'deleteUser' });
+};
 
 module.exports = {
   createUser,
   login,
   updateUser,
   deleteUser,
-}
+};

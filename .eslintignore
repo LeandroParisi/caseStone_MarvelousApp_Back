@@ -1,0 +1,4 @@
+/tests
+migrations/
+seeders/
+/src/models/index.js
