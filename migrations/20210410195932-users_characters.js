@@ -19,11 +19,11 @@ module.exports = {
       },
       updatedAt: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
+        defaultValue: Sequelize.fn('now'),
       },
       createdAt: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
+        defaultValue: Sequelize.fn('now'),
       },
     });
   },
