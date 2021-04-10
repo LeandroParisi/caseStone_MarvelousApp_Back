@@ -11,9 +11,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/user', UsersRouter)
-app.use('/character', CharactersRouter)
-app.use('/controller', ComicsRouter)
+app.use('/users', UsersRouter)
+app.use('/characters', CharactersRouter)
+app.use('/comics', ComicsRouter)
 
 app.use(errorHandler);
 
