@@ -12,7 +12,7 @@ const jwtConfig = {
 };
 
 const createJWTPayload = (user) => ({
-  iss: 'BlogsAPI',
+  iss: 'MarvelousApp',
   aud: 'identity',
   userData: user,
 });

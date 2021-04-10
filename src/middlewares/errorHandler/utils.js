@@ -6,7 +6,7 @@ const sendError = (err, res) => {
   });
 };
 
-class ThrowError extends Error {
+class FireError extends Error {
   constructor(statusCode, message) {
     super();
     this.statusCode = statusCode;
@@ -16,5 +16,5 @@ class ThrowError extends Error {
 
 module.exports = {
   sendError,
-  ThrowError,
+  FireError,
 };
