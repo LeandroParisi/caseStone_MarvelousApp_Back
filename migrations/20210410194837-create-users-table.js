@@ -32,7 +32,7 @@ module.exports = {
       },
       avatar: {
         type: Sequelize.STRING,
-      }
+      },
     })
   },
 
