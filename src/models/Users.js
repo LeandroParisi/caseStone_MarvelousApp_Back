@@ -13,6 +13,10 @@ const createUsers = (sequelize, DataTypes) => {
   });
 
   Users.associate = (models) => {
-    Users.hasMany(models.)
-  }
-}
+    Users.hasMany(models.usersCharacters, { as: 'favoriteCharacters', foreignKey: 'userId' })
+  };
+
+  return Users;
+};
+
+module.exports = createUsers;
