@@ -11,8 +11,8 @@ module.exports = {
         email: 'leandro@gmail.com',
         password: 'leandro123',
         avatar: null,
-      }],
-      [{
+      },
+      {
         id: 2,
         firstName: 'Teste',
         middleName: 'Teste',

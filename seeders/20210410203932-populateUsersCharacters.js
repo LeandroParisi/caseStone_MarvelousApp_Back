@@ -6,24 +6,24 @@ module.exports = {
       [{
         userId: 1,
         characterId: 1,
-      }],
-      [{
+      },
+      {
         userId: 1,
         characterId: 2,
-      }],
-      [{
+      },
+      {
         userId: 1,
         characterId: 3,
-      }],
-      [{
+      },
+      {
         userId: 2,
         characterId: 4,
-      }],
-      [{
+      },
+      {
         userId: 2,
         characterId: 5,
-      }],
-      [{
+      },
+      {
         userId: 2,
         characterId: 6,
       }],
