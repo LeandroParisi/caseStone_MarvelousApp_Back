@@ -1,10 +1,15 @@
+const { Op } = require('sequelize');
 const { status, messages } = require('../../libs');
 const { FireError } = require('../errorHandler/utils');
 const { UsersCharacters, UsersComics } = require('../../models');
 
-const isCharacterFavorite = (userId, favoriteId) => {
-  const isFavorite = UsersCharacters.findOne({ userId, characterId: favoriteId });
+const isCharacterFavorite = async (userId, favoriteId) => {
+  const isFavorite = await UsersCharacters.findOne(
+    { where: { [Op.and]:
+      [{ userId }, { characterId: favoriteId }] } },
+  );
   if (isFavorite) throw new FireError(status.conflict, messages.characterIsFavorite);
+  return null;
 };
 
 const validateIsNotFavorite = async (req, _res, next) => {
