@@ -1,4 +1,6 @@
 const axios = require('axios');
+const { status, messages } = require('../../libs');
+const { FireError } = require('../../middlewares/errorHandler/utils');
 
 /**
  * Default fetcher for entire application
@@ -18,12 +20,12 @@ const to = async (method, url, params = null, headers = null) => {
     params: params && { ...params },
   };
 
-  // try {
-  const response = await axios(options);
-  return response.data;
-  // } catch (error) {
-  //   return { message: error.response.data.message };
-  // }
+  try {
+    const response = await axios(options);
+    return response.data;
+  } catch (error) {
+    throw new FireError(status.internalError, messages.internalError);
+  }
 };
 
 module.exports = to;
