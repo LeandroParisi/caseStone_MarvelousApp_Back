@@ -1,4 +1,4 @@
-// const { UsersCharacters } = require('../models');
+const { UsersCharacters } = require('../models');
 const { status } = require('../libs');
 // const { FireError } = require('../middlewares/errorHandler/utils');
 const CharactersService = require('../services/MarvelAPI/CharactersService');
@@ -19,6 +19,13 @@ const getCharacterById = async (req, res) => {
 };
 
 const addFavoriteCharacter = async (req, res) => {
+  const { user: { id: userId } } = req;
+  const { id: characterId } = req.params;
+
+  const favoritedCharacter = await UsersCharacters.create({ userId, characterId });
+
+  console.log(favoritedCharacter);
+
   res.status(200).json({ message: 'addFavoriteCharacter' });
 };
 
