@@ -42,7 +42,7 @@ const assembleEndpoint = (type, id, endpoint) => {
     }
 
     return `${charactersEndpoints[endpoint]}`;
-  };
+  }
 
   if (type === 'comics') {
     if (id) {
@@ -50,8 +50,7 @@ const assembleEndpoint = (type, id, endpoint) => {
     }
 
     return `${comicsEndpoints[endpoint]}`;
-  };
-
+  }
 };
 
 module.exports = {
