@@ -49,7 +49,6 @@ const serializeCharacter = (character) => {
     description: description || null,
     urls: urls || null,
     comics: comics.returned !== 0 ? mapComics(comics) : null,
-    // thumbnail,
     thumbnails: parseThumbnails(thumbnail),
   };
 };
