@@ -1,24 +1,32 @@
 const marvelEndpoints = {
   characters: 'characters',
   comics: 'comics',
+
+  characterEndpoints: {
+    searchCharacters: 'searchCharacters',
+    searchCharacterById: 'searchCharacterById',
+    comicsByCharacterId: 'comicsByCharacterId',
+    seriesByCharacterId: 'seriesByCharacterId',
+    storiesByCharacterId: 'storiesByCharacterId',
+  },
 };
 
 const charactersEndpoints = {
-  searchCharacters: {
+  [marvelEndpoints.characterEndpoints.searchCharacters]: {
     initial: '/v1/public/characters',
   },
-  searchCharacterById: {
+  [marvelEndpoints.characterEndpoints.searchCharacterById]: {
     initial: '/v1/public/characters/',
   },
-  comicsByCharacterId: {
+  [marvelEndpoints.characterEndpoints.comicsByCharacterId]: {
     initial: '/v1/public/characters/',
     final: '/comics',
   },
-  seriesByCharacterId: {
+  [marvelEndpoints.characterEndpoints.seriesByCharacterId]: {
     initial: '/v1/public/characters/',
     final: '/series',
   },
-  storiesByCharacterId: {
+  [marvelEndpoints.characterEndpoints.storiesByCharacterId]: {
     initial: '/v1/public/characters/',
     final: '/stories',
   },
@@ -43,6 +51,23 @@ const comicsEndpoints = {
 
 const assembleCharacterEndpoint = (endpoint, id) => {
   const { initial, final } = charactersEndpoints[endpoint];
+
+  let assembledEndpoint = '';
+
+  if (final && id) {
+    assembledEndpoint = `${initial}${id}${final}`;
+    return assembledEndpoint;
+  }
+  if (id) {
+    assembledEndpoint = `${initial}${id}`;
+    return assembledEndpoint;
+  }
+  assembledEndpoint = `${initial}`;
+  return assembledEndpoint;
+};
+
+const assembleComicEndpoint = (endpoint, id) => {
+  const { initial, final } = comicsEndpoints[endpoint];
 
   let assembledEndpoint = '';
 
@@ -85,11 +110,7 @@ const assembleEndpoint = (type, endpoint, id) => {
   }
 
   if (type === 'comics') {
-    if (id) {
-      return `${comicsEndpoints[endpoint]}${id}`;
-    }
-
-    return `${comicsEndpoints[endpoint]}`;
+    return assembleComicEndpoint(endpoint, id);
   }
 };
 
