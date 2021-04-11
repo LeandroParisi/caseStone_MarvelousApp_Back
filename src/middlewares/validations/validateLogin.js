@@ -15,7 +15,7 @@ const validateLogin = async (req, _res, next) => {
     }
     const registeredUser = await Users.findOne({ where: { email, password } });
     if (!registeredUser) throw new FireError(status.badRequest, messages.userNotFound);
-    req.user = registeredUser;
+    req.user = registeredUser.dataValues;
     next();
   } catch (error) {
     next(error);

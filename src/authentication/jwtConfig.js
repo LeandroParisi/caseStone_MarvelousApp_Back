@@ -24,10 +24,13 @@ const generateToken = (user) => {
   return token;
 };
 
+const decode = (token) => jwt.verify(token, secret);
+
 module.exports = {
   secret,
   jwtConfig,
   createJWTPayload,
   jwtSign,
   generateToken,
+  decode,
 };
