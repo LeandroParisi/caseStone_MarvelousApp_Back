@@ -7,6 +7,7 @@ const errorMessages = {
   internalError: 'This is not your fault, we have had a system problem, please try again later',
   tokenNotFound: 'Token not found',
   invalidToken: 'Token has expired, please login again',
+  characterIsFavorite: 'Character is already favorited by you',
   // invalidName: '"displayName" length must be at least 8 characters long',
   // duplicatedEmail: 'Usuário já existe',
   // invalidBody: 'Invalid request body',

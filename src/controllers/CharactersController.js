@@ -24,8 +24,6 @@ const addFavoriteCharacter = async (req, res) => {
 
   const favoritedCharacter = await UsersCharacters.create({ userId, characterId });
 
-  console.log(favoritedCharacter);
-
   res.status(200).json({ message: 'addFavoriteCharacter' });
 };
 
