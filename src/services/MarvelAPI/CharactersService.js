@@ -4,7 +4,7 @@ const generateURL = require('../../authentication/marvelAPI/marvelAPI');
 
 const searchCharacters = async (query) => {
   const url = generateURL(characters, characterEndpoints.searchCharacters);
-  const queryUrl = `${url}&name=${query}`;
+  const queryUrl = `${url}&nameStartsWith=${query}`;
 
   const { data: results } = await to('GET', queryUrl);
   return results.results;

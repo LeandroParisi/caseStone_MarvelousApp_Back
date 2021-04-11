@@ -8,7 +8,7 @@ const searchCharacters = async (req, res, next) => {
 
   try {
     const response = await CharactersService.searchCharacters(query);
-    res.status(status.ok).json({ characters: [...response] });
+    res.status(status.ok).json({ result: [...response], type: 'characters' });
   } catch (error) {
     next(error);
   }
