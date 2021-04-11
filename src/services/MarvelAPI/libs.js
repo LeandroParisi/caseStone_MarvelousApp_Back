@@ -8,7 +8,13 @@ const thumbnailSizes = {
 
 const anotherLib = {};
 
-export {
+const getKeys = (asset) => Object.keys(asset);
+
+const getValues = (asset) => Object.values(asset);
+
+module.exports = {
   thumbnailSizes,
   anotherLib,
-}
+  getKeys,
+  getValues,
+};
