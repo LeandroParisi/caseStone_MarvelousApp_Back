@@ -1,7 +1,6 @@
 // const { UsersCharacters } = require('../models');
-// const { status, messages } = require('../libs');
+const { status } = require('../libs');
 // const { FireError } = require('../middlewares/errorHandler/utils');
-// const rescue = require('rescue');
 const CharactersService = require('../services/MarvelAPI/CharactersService');
 
 const searchCharacters = async (req, res, next) => {
@@ -9,7 +8,7 @@ const searchCharacters = async (req, res, next) => {
 
   try {
     const response = await CharactersService.searchCharacters(query);
-    res.status(200).json({ message: 'searchCharacters' });
+    res.status(status.ok).json({ characters: [...response] });
   } catch (error) {
     next(error);
   }
