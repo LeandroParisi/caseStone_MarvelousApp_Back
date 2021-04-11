@@ -1,14 +1,13 @@
 // const { UsersCharacters } = require('../models');
 // const { status, messages } = require('../libs');
 // const { FireError } = require('../middlewares/errorHandler/utils');
-const generateURL = require('../authentication/marvelAPI/marvelAPI');
+const CharactersService = require('../services/MarvelAPI/CharactersService');
 
 const searchCharacters = async (req, res) => {
   const { query } = req.query;
 
-  console.log(query);
+  const response = await CharactersService.searchCharacters(query);
 
-  console.log(generateURL('characters', 'searchCharacterById'));
   res.status(200).json({ message: 'searchCharacters' });
 };
 

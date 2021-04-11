@@ -2,7 +2,7 @@ require('dotenv').config();
 const md5 = require('md5');
 const { assembleEndpoint } = require('./libs');
 
-const MARVEL_URL = 'http://gateway.marvel.com';
+const MARVEL_URL = 'https://gateway.marvel.com';
 
 const PUBLIC_KEY = process.env.MARVELAPI_PUBLIC_KEY;
 const PRIVATE_KEY = process.env.MARVELAPI_PRIVATE_KEY;
