@@ -6,7 +6,9 @@ const thumbnailSizes = {
   xlarge: 'portrait_uncanny',
 };
 
-const anotherLib = {};
+const misc = {
+  missingImage: 'image_not_available',
+};
 
 const getKeys = (asset) => Object.keys(asset);
 
@@ -14,7 +16,7 @@ const getValues = (asset) => Object.values(asset);
 
 module.exports = {
   thumbnailSizes,
-  anotherLib,
+  misc,
   getKeys,
   getValues,
 };

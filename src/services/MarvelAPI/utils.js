@@ -1,4 +1,4 @@
-const { thumbnailSizes, getKeys, getValues } = require('./libs');
+const { thumbnailSizes, getKeys, getValues, misc } = require('./libs');
 
 const extractIdFromURI = (uri, idPosition) => {
   const splittedUri = uri.split('/');
@@ -7,6 +7,11 @@ const extractIdFromURI = (uri, idPosition) => {
 
 const assembleThumbnailLink = (thumbnail, size) => {
   const { path, extension } = thumbnail;
+  const splittedPath = path.split('/');
+  const isImageNotAvaiable = splittedPath.includes(misc.missingImage);
+  if (isImageNotAvaiable) {
+    return null;
+  }
   return `${path}/${size}.${extension}`;
 };
 
