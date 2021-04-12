@@ -4,7 +4,7 @@ const { validateToken, validateIsNotFavorite } = require('../middlewares/validat
 
 const CharactersRouter = new Router();
 
-CharactersRouter.get('/search', CharactersController.searchCharacters);
+CharactersRouter.get('/search', validateToken, CharactersController.searchCharacters);
 
 CharactersRouter.get('/:id', CharactersController.getCharacterById);
 

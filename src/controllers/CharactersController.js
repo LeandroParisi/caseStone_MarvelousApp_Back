@@ -5,9 +5,10 @@ const CharactersService = require('../services/MarvelAPI/CharactersService');
 
 const searchCharacters = async (req, res, next) => {
   const { query } = req.query;
+  const { id: userId } = req.user;
 
   try {
-    const response = await CharactersService.searchCharacters(query);
+    const response = await CharactersService.searchCharacters(query, userId);
     res.status(status.ok).json({ result: [...response], type: 'characters' });
   } catch (error) {
     next(error);
@@ -24,7 +25,7 @@ const addFavoriteCharacter = async (req, res) => {
 
   const favoritedCharacter = await UsersCharacters.create({ userId, characterId });
 
-  res.status(200).json({ message: 'addFavoriteCharacter' });
+  res.status(status.created).json({ status: status.created, favoritedCharacter });
 };
 
 const deleteFavoriteCharacter = async (req, res) => {
