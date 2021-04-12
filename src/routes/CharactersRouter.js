@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { CharactersController } = require('../controllers');
-const { validateToken, validateIsNotFavorite } = require('../middlewares/validations');
+const { validateToken, validateIsNotFavorite, addNewCharacter } = require('../middlewares/validations');
 
 const CharactersRouter = new Router();
 
@@ -8,7 +8,7 @@ CharactersRouter.get('/search', validateToken, CharactersController.searchCharac
 
 CharactersRouter.get('/:id', validateToken, CharactersController.getCharacterById);
 
-CharactersRouter.post('/:id', validateToken, validateIsNotFavorite, CharactersController.addFavoriteCharacter);
+CharactersRouter.post('/:id', addNewCharacter, validateToken, validateIsNotFavorite, CharactersController.addFavoriteCharacter);
 
 CharactersRouter.delete('/:id', validateToken, CharactersController.deleteFavoriteCharacter);
 
