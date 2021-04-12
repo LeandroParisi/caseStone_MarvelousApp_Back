@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { UsersCharacters } = require('../models');
 const { status } = require('../libs');
 // const { FireError } = require('../middlewares/errorHandler/utils');
@@ -29,7 +30,16 @@ const addFavoriteCharacter = async (req, res) => {
 };
 
 const deleteFavoriteCharacter = async (req, res) => {
-  res.status(200).json({ message: 'deleteFavoriteCharacter' });
+  const { user: { id: userId } } = req;
+  const { id: characterId } = req.params;
+
+  const favoritedCharacter = await UsersCharacters.destroy({
+    where: { [Op.and]: [
+      { userId }, { characterId },
+    ],
+    } });
+
+  res.status(status.noContent).json({ status: status.created, favoritedCharacter });
 };
 
 module.exports = {
