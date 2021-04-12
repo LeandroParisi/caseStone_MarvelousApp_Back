@@ -86,7 +86,7 @@ const serializeComic = (comic, favoriteComics) => {
     urls: urls || null,
     features: characters.returned !== 0 ? mapCharacters(characters) : null,
     thumbnails: parseThumbnails(thumbnail),
-    // isFavorited: favoriteComics.includes(id),
+    isFavorited: favoriteComics.includes(id),
   };
 };
 

@@ -12,7 +12,7 @@ const getComicById = async (req, res) => {
   const { id: userId } = req.user;
 
   const comic = await ComicsService.getComicById(id, userId);
-  res.status(200).json({ message: 'getComicById' });
+  res.status(status.ok).json({ result: comic, type: 'comics' });
 };
 
 const addFavoriteComic = async (req, res) => {
