@@ -84,7 +84,6 @@ const assembleComicEndpoint = (endpoint, id) => {
   }
   if (id) {
     assembledEndpoint = `${initial}${id}`;
-    console.log(assembledEndpoint);
     return assembledEndpoint;
   }
   assembledEndpoint = `${initial}`;
@@ -113,7 +112,6 @@ const assembleComicEndpoint = (endpoint, id) => {
  * @returns {string} endpoint ready to be sent to Marvel API
  */
 const assembleEndpoint = (type, endpoint, id) => {
-  console.log(id);
   if (type === 'characters') {
     return assembleCharacterEndpoint(endpoint, id);
   }

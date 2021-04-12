@@ -10,6 +10,6 @@ ComicsRouter.get('/:id', validateToken, ComicsController.getComicById);
 
 ComicsRouter.post('/:id', validateToken, ComicsController.addFavoriteComic);
 
-ComicsRouter.delete('/:id', ComicsController.deleteFavoriteComic);
+ComicsRouter.delete('/:id', validateToken, ComicsController.deleteFavoriteComic);
 
 module.exports = ComicsRouter;
