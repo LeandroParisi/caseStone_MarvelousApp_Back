@@ -25,7 +25,12 @@ const getComicById = async (req, res) => {
 };
 
 const addFavoriteComic = async (req, res) => {
-  res.status(200).json({ message: 'addFavoriteComic' });
+  const { user: { id: userId } } = req;
+  const { id: comicId } = req.params;
+
+  const favoritedCharacter = await UsersComics.create({ userId, comicId });
+
+  res.status(status.created).json({ status: status.created, favoritedCharacter });
 };
 
 const deleteFavoriteComic = async (req, res) => {

@@ -8,7 +8,7 @@ ComicsRouter.get('/search', validateToken, ComicsController.searchComics);
 
 ComicsRouter.get('/:id', validateToken, ComicsController.getComicById);
 
-ComicsRouter.post('/:id', ComicsController.addFavoriteComic);
+ComicsRouter.post('/:id', validateToken, ComicsController.addFavoriteComic);
 
 ComicsRouter.delete('/:id', ComicsController.deleteFavoriteComic);
 
