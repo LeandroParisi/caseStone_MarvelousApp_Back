@@ -33,10 +33,21 @@ const mapComics = (comics) => {
     const { name, resourceURI } = comic;
     return {
       name,
-      comicId: extractIdFromURI(resourceURI, 6),
+      featureId: extractIdFromURI(resourceURI, 6),
     };
   });
   return mappedComics;
+};
+
+const mapCharacters = (characters) => {
+  const mappedCharacters = characters.items.map((comic) => {
+    const { name, resourceURI } = comic;
+    return {
+      name,
+      featureId: extractIdFromURI(resourceURI, 6),
+    };
+  });
+  return mappedCharacters;
 };
 
 const serializeCharacter = (character, favoriteCharacters) => {
@@ -53,13 +64,34 @@ const serializeCharacter = (character, favoriteCharacters) => {
     name: name || null,
     description: description || null,
     urls: urls || null,
-    comics: comics.returned !== 0 ? mapComics(comics) : null,
+    features: comics.returned !== 0 ? mapComics(comics) : null,
     thumbnails: parseThumbnails(thumbnail),
     isFavorited: favoriteCharacters.includes(id),
+  };
+};
+
+const serializeComic = (comic, favoriteComics) => {
+  const { id = null,
+    title = null,
+    characters = null,
+    description = null,
+    thumbnail = null,
+    urls = null,
+  } = comic;
+
+  return {
+    id: id || null,
+    name: title || null,
+    description: description || null,
+    urls: urls || null,
+    features: characters.returned !== 0 ? mapCharacters(characters) : null,
+    thumbnails: parseThumbnails(thumbnail),
+    // isFavorited: favoriteComics.includes(id),
   };
 };
 
 module.exports = {
   serializeCharacter,
   extractIdFromURI,
+  serializeComic,
 };

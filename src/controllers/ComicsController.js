@@ -9,7 +9,9 @@ const searchComics = async (req, res) => {
 
 const getComicById = async (req, res) => {
   const { id } = req.params;
-  const teste = await ComicsService.getComicById(id);
+  const { id: userId } = req.user;
+
+  const comic = await ComicsService.getComicById(id, userId);
   res.status(200).json({ message: 'getComicById' });
 };
 

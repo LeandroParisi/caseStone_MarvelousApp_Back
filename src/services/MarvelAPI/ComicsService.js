@@ -1,23 +1,24 @@
 const { marvelEndpoints: { comics, comicsEndpoints } } = require('../../authentication/marvelAPI/libs');
 const to = require('./to.js');
 const generateURL = require('../../authentication/marvelAPI/marvelAPI');
-const { UsersCharacters } = require('../../models');
+const { UsersComics } = require('../../models');
+const { serializeComic } = require('./utils');
 
-const getComicById = async (id) => {
+const getFavoriteComics = async (userId) => {
+  const favoriteComics = await UsersComics.findAll({ where: { userId } });
+  const comicsIdArray = favoriteComics.map((comic) => comic.dataValues.comicId);
+  return comicsIdArray;
+};
+
+const getComicById = async (id, userId) => {
   const url = generateURL(comics, comicsEndpoints.searchComicsById, id);
   const { data: results } = await to('GET', url);
   const [comic] = [...results.results];
-  console.log(comic);
-  return null;
 
-  // const queryUrl = `${url}&nameStartsWith=${query}`;
+  const favoriteComics = await getFavoriteComics(userId);
 
-
-  // const favoriteCharacters = await getFavoriteCharacters(userId);
-
-  // const serializedCharacters = chars.map((char) => serializeCharacter(char, favoriteCharacters));
-
-  // return serializedCharacters;
+  const serializedComic = serializeComic(comic, favoriteComics);
+  return serializedComic;
 };
 
 module.exports = {
