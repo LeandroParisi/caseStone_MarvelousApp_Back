@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const { CharactersController } = require('../controllers');
-const { validateToken, validateIsNotFavorite, addNewCharacter } = require('../middlewares/validations');
+const { validateToken, validateIsNotFavorite } = require('../middlewares/validations');
+const { addNewCharacter } = require('../middlewares');
+
 
 const CharactersRouter = new Router();
 
