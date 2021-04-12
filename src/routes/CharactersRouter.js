@@ -3,7 +3,6 @@ const { CharactersController } = require('../controllers');
 const { validateToken, validateIsNotFavorite } = require('../middlewares/validations');
 const { addNewCharacter } = require('../middlewares');
 
-
 const CharactersRouter = new Router();
 
 CharactersRouter.get('/search', validateToken, CharactersController.searchCharacters);

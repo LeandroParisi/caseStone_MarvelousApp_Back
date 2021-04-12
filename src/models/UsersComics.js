@@ -5,7 +5,7 @@ const createUsersComics = (sequelize, DataTypes) => {
   });
 
   UsersComics.associate = (models) => {
-    UsersComics.belongsTo(models.Users, { as: 'favoriteComics', foreignKey: 'userId' });
+    UsersComics.belongsTo(models.Comics, { as: 'favoriteComics', foreignKey: 'comicId' });
   };
 
   UsersComics.removeAttribute('id');

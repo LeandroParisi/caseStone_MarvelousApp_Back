@@ -9,6 +9,10 @@ const createComics = (sequelize, DataTypes) => {
     thumbnail: DataTypes.STRING,
   });
 
+  Comics.associate = (models) => {
+    Comics.hasMany(models.UsersComics, { as: 'favoriteComics', foreignKey: 'comicId' });
+  };
+
   Comics.removeAttribute('id');
 
   return Comics;

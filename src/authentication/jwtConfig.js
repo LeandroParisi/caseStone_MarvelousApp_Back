@@ -8,7 +8,7 @@ const jwtSign = (payload, jwtSecret, jwtConfig) => (
 );
 
 const jwtConfig = {
-  expiresIn: '150m',
+  expiresIn: '7d',
   algorithm: 'HS256',
 };
 

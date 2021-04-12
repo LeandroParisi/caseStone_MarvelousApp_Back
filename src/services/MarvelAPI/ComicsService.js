@@ -1,7 +1,7 @@
 const { marvelEndpoints: { comics, comicsEndpoints } } = require('../../authentication/marvelAPI/libs');
 const to = require('./to.js');
 const generateURL = require('../../authentication/marvelAPI/marvelAPI');
-const { UsersComics } = require('../../models');
+const { UsersComics, Comics } = require('../../models');
 const { serializeComic } = require('./utils');
 
 const getFavoriteComics = async (userId) => {
@@ -36,7 +36,19 @@ const searchComics = async (query, userId) => {
   return serializedComics;
 };
 
+const getUserFavoriteComics = async (id) => {
+  const favoriteComics = await UsersComics.findAll({
+    where: { userId: id },
+    include: { model: Comics, as: 'favoriteComics' },
+  });
+
+  const mappedFavoriteComics = favoriteComics.map((item) => item.favoriteComics);
+
+  return mappedFavoriteComics;
+};
+
 module.exports = {
   getComicById,
   searchComics,
+  getUserFavoriteComics,
 };

@@ -1,7 +1,7 @@
 const { Op } = require('sequelize');
 const { status, messages } = require('../../libs');
 const { FireError } = require('../errorHandler/utils');
-const { UsersCharacters, UsersComics } = require('../../models');
+const { UsersCharacters } = require('../../models');
 
 const isCharacterFavorite = async (userId, favoriteId) => {
   const isFavorite = await UsersCharacters.findOne(
