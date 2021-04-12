@@ -6,7 +6,8 @@ const { UsersCharacters } = require('../../models');
 
 const getFavoriteCharacters = async (userId) => {
   const favoriteCharacters = await UsersCharacters.findAll({ where: { userId } });
-  return favoriteCharacters;
+  const charsIdArray = favoriteCharacters.map((char) => char.dataValues.characterId);
+  return charsIdArray;
 };
 
 const searchCharacters = async (query, userId) => {
@@ -19,11 +20,7 @@ const searchCharacters = async (query, userId) => {
 
   const favoriteCharacters = await getFavoriteCharacters(userId);
 
-  console.log('favoriteCharacters', favoriteCharacters);
-
-  const serializedCharacters = chars.map((char) => serializeCharacter(char));
-
-  console.log(serializedCharacters);
+  const serializedCharacters = chars.map((char) => serializeCharacter(char, favoriteCharacters));
 
   return serializedCharacters;
 };

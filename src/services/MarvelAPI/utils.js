@@ -34,7 +34,7 @@ const mapComics = (comics) => {
   return mappedComics;
 };
 
-const serializeCharacter = (character) => {
+const serializeCharacter = (character, favoriteCharacters) => {
   const { id = null,
     name = null,
     comics = null,
@@ -50,6 +50,7 @@ const serializeCharacter = (character) => {
     urls: urls || null,
     comics: comics.returned !== 0 ? mapComics(comics) : null,
     thumbnails: parseThumbnails(thumbnail),
+    isFavorited: favoriteCharacters.includes(id),
   };
 };
 
