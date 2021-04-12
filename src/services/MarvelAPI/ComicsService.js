@@ -21,6 +21,22 @@ const getComicById = async (id, userId) => {
   return serializedComic;
 };
 
+const searchComics = async (query, userId) => {
+  const url = generateURL(comics, comicsEndpoints.searchComics);
+  const queryUrl = `${url}&titleStartsWith=${query}`;
+
+  const { data: results } = await to('GET', queryUrl);
+
+  const chars = [...results.results];
+
+  const favoriteComics = await getFavoriteComics(userId);
+
+  const serializedComics = chars.map((char) => serializeComic(char, favoriteComics));
+
+  return serializedComics;
+};
+
 module.exports = {
   getComicById,
+  searchComics,
 };

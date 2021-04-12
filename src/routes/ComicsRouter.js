@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const { ComicsController } = require('../controllers');
-const { validateToken, validateIsNotFavorite } = require('../middlewares/validations');
+const { validateToken } = require('../middlewares/validations');
 
 const ComicsRouter = new Router();
 
-ComicsRouter.get('/search', ComicsController.searchComics);
+ComicsRouter.get('/search', validateToken, ComicsController.searchComics);
 
 ComicsRouter.get('/:id', validateToken, ComicsController.getComicById);
 
