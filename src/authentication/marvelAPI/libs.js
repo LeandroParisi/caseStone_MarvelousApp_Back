@@ -9,6 +9,13 @@ const marvelEndpoints = {
     seriesByCharacterId: 'seriesByCharacterId',
     storiesByCharacterId: 'storiesByCharacterId',
   },
+
+  comicsEndpoints: {
+    searchComics: 'searchComics',
+    searchComicsById: 'searchComicsById',
+    charactersByComicId: 'charactersByComicId',
+    creatorsByComicId: 'creatorsByComicId',
+  },
 };
 
 const charactersEndpoints = {
@@ -36,7 +43,7 @@ const comicsEndpoints = {
   searchComics: {
     initial: '/v1/public/comics',
   },
-  searchCharacterById: {
+  searchComicsById: {
     initial: '/v1/public/comics/',
   },
   charactersByComicId: {
@@ -77,6 +84,7 @@ const assembleComicEndpoint = (endpoint, id) => {
   }
   if (id) {
     assembledEndpoint = `${initial}${id}`;
+    console.log(assembledEndpoint);
     return assembledEndpoint;
   }
   assembledEndpoint = `${initial}`;
@@ -105,6 +113,7 @@ const assembleComicEndpoint = (endpoint, id) => {
  * @returns {string} endpoint ready to be sent to Marvel API
  */
 const assembleEndpoint = (type, endpoint, id) => {
+  console.log(id);
   if (type === 'characters') {
     return assembleCharacterEndpoint(endpoint, id);
   }

@@ -1,12 +1,15 @@
 const { UsersComics } = require('../models');
 const { status, messages } = require('../libs');
 const { FireError } = require('../middlewares/errorHandler/utils');
+const ComicsService = require('../services/MarvelAPI/ComicsService');
 
 const searchComics = async (req, res) => {
   res.status(200).json({ message: 'searchComics' });
 };
 
 const getComicById = async (req, res) => {
+  const { id } = req.params;
+  const teste = await ComicsService.getComicById(id);
   res.status(200).json({ message: 'getComicById' });
 };
 
