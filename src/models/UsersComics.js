@@ -8,6 +8,8 @@ const createUsersComics = (sequelize, DataTypes) => {
     UsersComics.belongsTo(models.Users, { as: 'favoriteComics', foreignKey: 'userId' });
   };
 
+  UsersComics.removeAttribute('id');
+
   return UsersComics;
 };
 

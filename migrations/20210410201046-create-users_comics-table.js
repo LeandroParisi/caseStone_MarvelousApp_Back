@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('UsersComics', {
@@ -15,6 +16,14 @@ module.exports = {
       comicId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       },
     });
   },
