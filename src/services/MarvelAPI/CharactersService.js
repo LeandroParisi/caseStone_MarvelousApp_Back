@@ -25,10 +25,22 @@ const searchCharacters = async (query, userId) => {
   return serializedCharacters;
 };
 
+const getCharacterById = async (id, userId) => {
+  const url = generateURL(characters, characterEndpoints.searchCharacterById, id);
+  const { data: results } = await to('GET', url);
+  const [character] = [...results.results];
+
+  const favoriteComics = await getFavoriteCharacters(userId);
+
+  const serializedCharacter = serializeCharacter(character, favoriteComics);
+  return serializedCharacter;
+};
+
 // const getCharacterById = async () => {
 
 // };
 
 module.exports = {
   searchCharacters,
+  getCharacterById
 };

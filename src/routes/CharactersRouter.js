@@ -6,7 +6,7 @@ const CharactersRouter = new Router();
 
 CharactersRouter.get('/search', validateToken, CharactersController.searchCharacters);
 
-CharactersRouter.get('/:id', CharactersController.getCharacterById);
+CharactersRouter.get('/:id', validateToken, CharactersController.getCharacterById);
 
 CharactersRouter.post('/:id', validateToken, validateIsNotFavorite, CharactersController.addFavoriteCharacter);
 

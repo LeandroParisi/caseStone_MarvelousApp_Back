@@ -17,7 +17,11 @@ const searchCharacters = async (req, res, next) => {
 };
 
 const getCharacterById = async (req, res) => {
-  res.status(200).json({ message: 'getCharacterById' });
+  const { id } = req.params;
+  const { id: userId } = req.user;
+
+  const comic = await CharactersService.getCharacterById(id, userId);
+  res.status(status.ok).json({ result: comic, type: 'comics' });
 };
 
 const addFavoriteCharacter = async (req, res) => {
