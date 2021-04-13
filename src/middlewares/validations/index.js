@@ -7,5 +7,5 @@ module.exports = {
   validateLogin,
   validateToken,
   validateIsNewUser,
-  validateIsNotFavorite
+  validateIsNotFavorite,
 };

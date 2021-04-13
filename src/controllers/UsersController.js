@@ -1,6 +1,5 @@
-const { Users, UsersCharacters, UsersComics, Characters } = require('../models');
+const { Users } = require('../models');
 const { status, resMessages } = require('../libs');
-const { FireError } = require('../middlewares/errorHandler/utils');
 const { generateToken } = require('../authentication/jwtConfig');
 const { getUserFavoriteCharacters } = require('../services/MarvelAPI/CharactersService');
 const { getUserFavoriteComics } = require('../services/MarvelAPI/ComicsService');
@@ -29,9 +28,12 @@ const updateUser = async (req, res) => {
 
   await Users.update(
     { email, password, firstName, lastName },
-    { where: { email: previousEmail, password: previousPassword } }
+    { where: { email: previousEmail, password: previousPassword } },
   );
-  res.status(status.ok).json({ message: 'Updated successfully', status: 'ok' });
+
+  const token = generateToken({ email, password });
+
+  res.status(status.ok).json({ message: 'Updated successfully', status: 'ok', token });
 };
 
 const deleteUser = async (req, res) => {

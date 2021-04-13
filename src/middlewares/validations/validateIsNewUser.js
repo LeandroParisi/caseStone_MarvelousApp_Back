@@ -7,7 +7,9 @@ const validateNewUser = async (req, res, next) => {
   const { email, password } = req.body;
 
   try {
-    const isUserRegistered = await Users.findOne({ where: { [Op.and]: [{email}, {password}]}});
+    const isUserRegistered = await Users.findOne(
+      { where: { [Op.and]: [{ email }, { password }] } },
+    );
     console.log(isUserRegistered);
     if (isUserRegistered) throw new FireError(status.conflict, messages.userIsRegistered);
 
