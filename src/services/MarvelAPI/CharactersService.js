@@ -2,7 +2,7 @@ const { marvelEndpoints: { characters, characterEndpoints } } = require('../../a
 const to = require('./to.js');
 const generateURL = require('../../authentication/marvelAPI/marvelAPI');
 const { serializeCharacter } = require('./utils');
-const { UsersCharacters } = require('../../models');
+const { UsersCharacters, Characters } = require('../../models');
 
 const getFavoriteCharacters = async (userId) => {
   const favoriteCharacters = await UsersCharacters.findAll({ where: { userId } });
@@ -36,11 +36,29 @@ const getCharacterById = async (id, userId) => {
   return serializedCharacter;
 };
 
-// const getCharacterById = async () => {
+const getUserFavoriteCharacters = async (id) => {
+  const favoriteCharacters = await UsersCharacters.findAll({
+    where: { userId: id },
+    include: { model: Characters, as: 'favoriteCharacters' },
+  });
 
-// };
+  const mappedFavoriteCharacters = favoriteCharacters.map((item) => (
+    {
+      ...item.favoriteCharacters.dataValues,
+      thumbnails: { xlarge: item.favoriteCharacters.dataValues.thumbnail },
+      isFavorited: true,
+    }
+  ));
+
+  // const mappedFavoriteCharacters = favoriteCharacters.map((item) => (
+  //   { ...item.favoriteCharacters, isFavorited: true }
+  // ));
+
+  return mappedFavoriteCharacters;
+};
 
 module.exports = {
   searchCharacters,
-  getCharacterById
+  getCharacterById,
+  getUserFavoriteCharacters,
 };

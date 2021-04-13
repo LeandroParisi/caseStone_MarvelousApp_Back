@@ -1,7 +1,6 @@
 const { Op } = require('sequelize');
 const { UsersComics } = require('../models');
-const { status, messages } = require('../libs');
-const { FireError } = require('../middlewares/errorHandler/utils');
+const { status } = require('../libs');
 const ComicsService = require('../services/MarvelAPI/ComicsService');
 
 const searchComics = async (req, res, next) => {

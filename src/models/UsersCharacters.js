@@ -7,7 +7,7 @@ const createUsersCharacters = (sequelize, DataTypes) => {
   });
 
   UsersCharacters.associate = (models) => {
-    UsersCharacters.belongsTo(models.Users, { as: 'favoriteCharacters', foreignKey: 'userId' });
+    UsersCharacters.belongsTo(models.Characters, { as: 'favoriteCharacters', foreignKey: 'characterId' });
   };
 
   UsersCharacters.removeAttribute('id');

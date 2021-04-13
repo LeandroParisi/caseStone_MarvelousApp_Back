@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('UsersComics', {
+    await queryInterface.createTable('UsersCharacters', {
       userId: {
         allowNull: false,
         foreignKey: true,
@@ -13,9 +13,14 @@ module.exports = {
           key: 'id',
         },
       },
-      comicId: {
+      characterId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'Characters',
+          key: 'characterId',
+        },
       },
       updatedAt: {
         type: Sequelize.DATE,
@@ -29,6 +34,6 @@ module.exports = {
   },
 
   down: async (queryInterface, _Sequelize) => {
-    await queryInterface.dropTable('UsersComics');
+    await queryInterface.dropTable('UsersCharacters');
   },
 };

@@ -8,17 +8,7 @@ const errorMessages = {
   tokenNotFound: 'Token not found',
   invalidToken: 'Token has expired, please login again',
   characterIsFavorite: 'Character is already favorited by you',
-  // invalidName: '"displayName" length must be at least 8 characters long',
-  // duplicatedEmail: 'Usuário já existe',
-  // invalidBody: 'Invalid request body',
-  // emptyEmail: '"email" is not allowed to be empty',
-  // emptyPassword: '"password" is not allowed to be empty',
-  // invalidFields: 'Campos inválidos',
-  // missingTitle: '"title" is required',
-  // missingContent: '"content" is required',
-  // missingPost: 'Post não existe',
-  // unauthorizedUser: 'Usuário não autorizado',
-
+  userIsRegistered: 'User already registered',
 };
 
 module.exports = errorMessages;
