@@ -42,7 +42,17 @@ const getUserFavoriteCharacters = async (id) => {
     include: { model: Characters, as: 'favoriteCharacters' },
   });
 
-  const mappedFavoriteCharacters = favoriteCharacters.map((item) => item.favoriteCharacters);
+  const mappedFavoriteCharacters = favoriteCharacters.map((item) => (
+    {
+      ...item.favoriteCharacters.dataValues,
+      thumbnails: { xlarge: item.favoriteCharacters.dataValues.thumbnail },
+      isFavorited: true,
+    }
+  ));
+
+  // const mappedFavoriteCharacters = favoriteCharacters.map((item) => (
+  //   { ...item.favoriteCharacters, isFavorited: true }
+  // ));
 
   return mappedFavoriteCharacters;
 };

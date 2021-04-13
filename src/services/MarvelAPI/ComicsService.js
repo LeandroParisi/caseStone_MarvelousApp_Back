@@ -42,7 +42,13 @@ const getUserFavoriteComics = async (id) => {
     include: { model: Comics, as: 'favoriteComics' },
   });
 
-  const mappedFavoriteComics = favoriteComics.map((item) => item.favoriteComics);
+  const mappedFavoriteComics = favoriteComics.map((item) => (
+    {
+      ...item.favoriteComics.dataValues,
+      thumbnails: { xlarge: item.favoriteComics.dataValues.thumbnail },
+      isFavorited: true,
+    }
+  ));
 
   return mappedFavoriteComics;
 };

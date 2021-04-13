@@ -6,7 +6,13 @@ const { getUserFavoriteCharacters } = require('../services/MarvelAPI/CharactersS
 const { getUserFavoriteComics } = require('../services/MarvelAPI/ComicsService');
 
 const createUser = async (req, res) => {
-  res.status(status.ok).json({ message: 'createUser' });
+  const { email, password, firstName, lastName } = req.body;
+
+  const token = generateToken({ email, password });
+
+  await Users.create({ email, password, firstName, lastName });
+
+  res.status(status.ok).json({ message: resMessages.loginOK, token, user: { email, password } });
 };
 
 const login = async (req, res) => {
@@ -14,7 +20,7 @@ const login = async (req, res) => {
 
   const token = generateToken({ email, password });
 
-  res.status(status.ok).json({ message: resMessages.loginOK, token });
+  res.status(status.ok).json({ message: resMessages.loginOK, token, user: { email, password } });
 };
 
 const updateUser = async (req, res) => {
@@ -26,17 +32,17 @@ const deleteUser = async (req, res) => {
 };
 
 const getFavoriteCharacters = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.user;
 
   const favoriteCharacters = await getUserFavoriteCharacters(id);
-  res.status(status.ok).json(favoriteCharacters);
+  res.status(status.ok).json({ result: favoriteCharacters, type: 'characters' });
 };
 
 const getFavoriteComics = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.user;
 
   const favoriteComics = await getUserFavoriteComics(id);
-  res.status(status.ok).json(favoriteComics);
+  res.status(status.ok).json({ result: favoriteComics, type: 'comics' });
 };
 
 module.exports = {

@@ -8,6 +8,7 @@ const errorMessages = {
   tokenNotFound: 'Token not found',
   invalidToken: 'Token has expired, please login again',
   characterIsFavorite: 'Character is already favorited by you',
+  userIsRegistered: 'User already registered',
   // invalidName: '"displayName" length must be at least 8 characters long',
   // duplicatedEmail: 'Usuário já existe',
   // invalidBody: 'Invalid request body',
