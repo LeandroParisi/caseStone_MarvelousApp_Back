@@ -4,6 +4,7 @@
   "description": "Front end of Marvelous APP, a complete catalogue about marvel comics and characters",
   "main": "src/index.js",
   "scripts": {
+    "start": "node index.js",
     "debug": "nodemon src/index.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
