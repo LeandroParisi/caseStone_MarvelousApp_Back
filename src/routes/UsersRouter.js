@@ -8,7 +8,7 @@ UsersRouter.post('/', validateIsNewUser, UsersController.createUser);
 
 UsersRouter.post('/login', validateLogin, UsersController.login);
 
-UsersRouter.put('/:id', UsersController.updateUser);
+UsersRouter.put('/', validateToken, UsersController.updateUser);
 
 UsersRouter.delete('/:id', UsersController.deleteUser);
 

@@ -24,7 +24,14 @@ const login = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  res.status(status.ok).json({ message: 'updateUser' });
+  const { email: previousEmail, password: previousPassword } = req.user;
+  const { email, password, firstName, lastName } = req.body;
+
+  await Users.update(
+    { email, password, firstName, lastName },
+    { where: { email: previousEmail, password: previousPassword } }
+  );
+  res.status(status.ok).json({ message: 'Updated successfully', status: 'ok' });
 };
 
 const deleteUser = async (req, res) => {
