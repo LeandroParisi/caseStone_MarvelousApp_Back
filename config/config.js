@@ -18,8 +18,14 @@ module.exports = {
   production: {
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: 'marvelous_prod',
+    database: process.env.DATABASE_URL,
     host: process.env.HOSTNAME,
-    dialect: 'mysql',
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   },
 };
