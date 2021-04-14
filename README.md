@@ -52,6 +52,10 @@ Create more routes to serve more categories:
 - [ ] series
 - [ ] stories
 
+__
+
 - [ ] Create some other persistent information on DB (like the one made to persist favorite characters) so that the application is less dependant on marvelAPI
+
+__
 
 - [ ] Implement 80% of test coverage
