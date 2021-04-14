@@ -27,8 +27,6 @@ const getCharacterById = async (req, res) => {
 const addFavoriteCharacter = async (req, res) => {
   const { user: { id: userId } } = req;
   const { id: characterId } = req.params;
-  const { asset } = req.body;
-  console.log(asset);
 
   const favoritedCharacter = await UsersCharacters.create({ userId, characterId });
 
