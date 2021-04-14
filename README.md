@@ -1,6 +1,6 @@
 <h1 align="center">Marvelous App - back:</h1>
 <h2 align="center">Made for Stone challenge 2021</h2>
-<p align="center"><a href="https://marvelousapp-front.herokuapp.com/">Aplicação em produção</a></p>
+<p align="center"><a href="https://marvelousapp-front.herokuapp.com/">Link to production</a></p>
 Note that, since the application is built using Heroku free version the first access may take a while to open (initializing front end instance) and to loggin / register user (initializing back end instance).
 
 <hr />
