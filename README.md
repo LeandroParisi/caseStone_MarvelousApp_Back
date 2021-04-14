@@ -20,13 +20,13 @@ Aplicação back end para nutrir o <a href="https://github.com/LeandroParisi/cas
     `npm install`  
 
 4. Crie um arquivo .env e com as seguintes chaves:
-    PORT=3001
-    MYSQL_USER=[seu username no SQL]
-    MYSQL_PASSWORD=[seu password no SQL]
-    HOSTNAME=localhost
-    MARVELAPI_PRIVATE_KEY=b4fabee5120316f888771c36ed0dac5e8c1bf7b9
-    MARVELAPI_PUBLIC_KEY=598183ed1a4951bb8782864bc47a8a46
-    SECRET=MY_MARVELOUS_APP
+    <p>PORT=3001</p>
+    <p>MYSQL_USER=[seu username no SQL]</p>
+    <p>MYSQL_PASSWORD=[seu password no SQL]</p>
+    <p>HOSTNAME=localhost</p>
+    <p>MARVELAPI_PRIVATE_KEY=b4fabee5120316f888771c36ed0dac5e8c1bf7b9</p>
+    <p>MARVELAPI_PUBLIC_KEY=598183ed1a4951bb8782864bc47a8a46</p>
+    <p>SECRET=MY_MARVELOUS_APP</p>
 
 5. Crie o banco no sequelize e rode as migrations:
     npx sequelize db:create
