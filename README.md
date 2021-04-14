@@ -1,6 +1,6 @@
 <h1 align="center">Marvelous App - back:</h1>
 <h2 align="center">Projeto para o processo Stone 2021</h2>
-<p align="center"><a href="marvelousapp-front.herokuapp.com/">Aplicação em produção</a></p>
+<p align="center"><a href="https://marvelousapp-front.herokuapp.com/">Aplicação em produção</a></p>
 
 <hr />
 
