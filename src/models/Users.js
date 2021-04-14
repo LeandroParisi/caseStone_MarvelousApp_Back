@@ -1,9 +1,5 @@
 const createUsers = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-    },
     firstName: DataTypes.STRING,
     middleName: DataTypes.STRING,
     lastName: DataTypes.STRING,
