@@ -4,15 +4,9 @@ module.exports = {
   development: {
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: process.env.DATABASE_URL,
+    database: 'marvelous_development',
     host: process.env.HOSTNAME,
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
+    dialect: 'mysql',
   },
   test: {
     username: process.env.MYSQL_USER,
@@ -27,11 +21,5 @@ module.exports = {
     database: process.env.DATABASE_URL,
     host: process.env.HOSTNAME,
     dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
   },
 };
