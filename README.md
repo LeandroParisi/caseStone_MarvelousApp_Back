@@ -46,15 +46,12 @@ Back end application to serve <a href="https://github.com/LeandroParisi/case-sto
 
 ## Improvements to be done:
 
-1.
-- [ ] Create more routes to serve more categories:
+Create more routes to serve more categories:
 - [ ] creators
 - [ ] events
 - [ ] series
 - [ ] stories
 
-2.
 - [ ] Create some other persistent information on DB (like the one made to persist favorite characters) so that the application is less dependant on marvelAPI
 
-3.
 - [ ] Implement 80% of test coverage
