@@ -18,26 +18,24 @@ Aplicação back end para nutrir o <a href="https://github.com/LeandroParisi/cas
 3. Installation:
     `npm install`  
 
-4. Faça um cadastro na <a href="https://developer.marvel.com/API" >API da marvel</a> para poder se conectar, ao se cadastrar vai receber duas chaves (PRIVATE_KEY, PUBLIC_KEY), salve-as que vamos usar abaixo.
-
-
-5. Crie um arquivo .env e com as seguintes chaves:
+4. Crie um arquivo .env e com as seguintes chaves:
     PORT=3001
     MYSQL_USER=[seu username no SQL]
     MYSQL_PASSWORD=[seu password no SQL]
     HOSTNAME=localhost
-    PRIVATE_KEY=[sua private key]
-    PUBLIC_KEY=[sua public key]
+    MARVELAPI_PRIVATE_KEY=b4fabee5120316f888771c36ed0dac5e8c1bf7b9
+    MARVELAPI_PUBLIC_KEY=598183ed1a4951bb8782864bc47a8a46
+    SECRET=MY_MARVELOUS_APP
 
-6. Crie o banco no sequelize e rode as migrations:
+5. Crie o banco no sequelize e rode as migrations:
     npx sequelize db:create
     npx sequelize db:migrate
 
-7. To Run Test Suite (not implemented yet):  
+6. To Run Test Suite (not implemented yet):  
 
     `npm test`  
 
-8. To Start Server:
+7. To Start Server:
 
     `npm start`  
 
