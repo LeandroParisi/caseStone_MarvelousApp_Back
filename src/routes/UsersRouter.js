@@ -4,7 +4,9 @@ const { validateLogin, validateToken, validateIsNewUser } = require('../middlewa
 
 const UsersRouter = new Router();
 
-UsersRouter.post('/', validateIsNewUser, UsersController.createUser);
+// UsersRouter.post('/', validateIsNewUser, UsersController.createUser);
+
+UsersRouter.post('/', UsersController.createUser);
 
 UsersRouter.post('/login', validateLogin, UsersController.login);
 
