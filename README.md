@@ -21,14 +21,14 @@ Back end application to serve <a href="https://github.com/LeandroParisi/case-sto
 
 4. Create a .env archive on project root with the following content:
     <p>PORT=3001</p>
-    <p>MYSQL_USER=[seu username no SQL]</p>
-    <p>MYSQL_PASSWORD=[seu password no SQL]</p>
+    <p>MYSQL_USER=[your SQL user]</p>
+    <p>MYSQL_PASSWORD=[your SQL password]</p>
     <p>HOSTNAME=localhost</p>
     <p>MARVELAPI_PRIVATE_KEY=b4fabee5120316f888771c36ed0dac5e8c1bf7b9</p>
     <p>MARVELAPI_PUBLIC_KEY=598183ed1a4951bb8782864bc47a8a46</p>
     <p>SECRET=MY_MARVELOUS_APP</p>
 
-<b>Para a STONE:</b> Sei que não é ideal colocar as chaves privadas assim de forma pública, mas, pensando em facilitar para vocês testarem deixei aqui, após o processo seletivo vou retirar
+<b>Info:</b> I know it is not recommended to leave sensitive data on repo readme like .env passwords or private keys as above. But I did it in order to simplify testing.
 
 5. Create DB and run sequelize migrations:
     npx sequelize db:create
